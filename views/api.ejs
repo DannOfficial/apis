@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvCP1T1tG_nglaaF5dYJOFQRM96Xw30te10g&usqp=CAU" />
+    <meta property="og:description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="DannTeam API" />
+    <meta property="og:url" content="https://api.dannteam.com" />
+    <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="icon">
+    <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="apple-touch-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3623406530584630"
+     crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+  <style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        margin: 0px;
+    }
+
+    .center .description .clock {
+        color: #000000;
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .center {
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin: 0px;
+        width: 100%;
+        color: #222;
+        z-index: 1;
+        padding-top: 150px;
+    }
+
+    .center h1 {
+        font-size: 4rem;
+    }
+
+    .center .description {
+        font-family: monospace;
+        line-height: 22px;
+        font-size: 18px;
+        width: 370px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .center .description a {
+        text-decoration: none;
+        color: #111;
+        text-style: bold;
+    }
+
+    .select {
+        display: inline-block;
+        margin-right: 10px;
+        position: relative;
+    }
+
+    select {
+        transition: background-color 200ms ease;
+        font-size: 14px;
+        padding: 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+        border-radius: 3px;
+        font-family: monospace;
+        padding-right: 30px;
+        position: relative;
+        outline: 0px;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .select:after {
+        content: "▼";
+        padding: 14px 8px;
+        position: absolute;
+        right: 13px;
+        top: 0;
+        z-index: 1;
+        text-align: center;
+        width: 10%;
+        height: 100%;
+        pointer-events: none;
+        box-sizing: border-box;
+        font-size: 9px;
+    }
+
+    button {
+        transition: background-color 200ms ease;
+        font-size: 14px;
+        padding: 10px 12px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+        border-radius: 3px;
+        border: 1px solid #aaa;
+        background: #fff;
+        font-family: monospace;
+        cursor: pointer;
+        outline: 0px;
+    }
+
+    button:hover,
+    select:hover {
+        background-color: #eee;
+    }
+
+    .center .links {
+        padding-top: 10px;
+        font-family: monospace;
+        letter-spacing: 0.3px;
+        font-size: 14px;
+    }
+
+    .center .links a {
+        text-decoration: none;
+        margin-left: 0px;
+        margin-right: 100px;
+        color: #111;
+    }
+
+    .center .links a:hover {
+        text-decoration: underline;
+    }
+
+    .center .grid {
+      display: grid;
+      column-gap: 50px;
+    }
+    .center .grid hr {
+      border-top: 1px dashed gray;
+    }
+    .center .grid-item {
+      font-family: monospace;
+      letter-spacing: 0.3px;
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+    .center .grid-item a {
+      float: left;
+      text-decoration: none;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: #111;
+    }
+
+    footer{
+        color: #000;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    iframe {
+        margin-left: 14px;
+        margin-bottom: -5px;
+    }
+
+    @media (max-width: 900px) {
+        .center h1 {
+            font-size: 50px;
+        }
+        .center .links a,
+        .center .links iframe {
+            display: block;
+            margin: auto;
+            margin-bottom: 12px;
+        }
+        .divider {
+            display: none;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .center h1 {
+            font-size: 26px;
+        }
+        .center .description {
+            font-size: 14px;
+            width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+            box-sizing: border-box;
+        }
+      }
+      table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+          .user-chat:empty {
+           background-color: transparent;
+           pointer-events: none;
+        }
+           .chat-container {
+            background-color: var(--primary);
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        .user-chat {
+            background-color: #dcf8c6;
+            color: #000;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+            .bot-chat {
+            background-color: #ffffff;
+            color: #000;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+    .live-chat-input {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 10px;
+    }
+
+    #inputText {
+      flex: 1;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #submitBtn {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #submitBtn:hover {
+      background-color: #45a049;
+    }
+    }
+  </style>
+</head>
+<body>
+<div class="center">
+    <h1>DannTeam API</h1>
+    <div class="description">
+        The official DannTeam API Restfull API's
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+        <h3>Tools</h3>
+        <table>
+            <hr>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Method</th>
+                <th>Tab New</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Remini</td>
+                <td>POST</td>
+                <td><a href="/remini">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Removebg</td>
+                <td>POST</td>
+                <td><a href="/removebg">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>To Anime</td>
+                <td>POST</td>
+                <td><a href="/toanime">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>To Zombie</td>
+                <td>POST</td>
+                <td><a href="/tozombie">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Speech To Text</td>
+                <td>POST</td>
+                <td><a href="/speech">[ ➠ ]</a></td>
+            </tr>
+        </table>
+        <h3>Features</h3>
+        <table>
+            <hr>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Method</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Terabox Downloader</td>
+                <td>GET</td>
+                <td><a href="/terabox?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Aiovideo Downloader</td>
+                <td>GET</td>
+                <td><a href="/aio?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Capcut Downloader</td>
+                <td>GET</td>
+                <td><a href="/capcut?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Douyin Downloader</td>
+                <td>GET</td>
+                <td><a href="/douyindl?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Facebook Downloader</td>
+                <td>GET</td>
+                <td><a href="/facebook?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Instagram Downloader</td>
+                <td>GET</td>
+                <td><a href="/instagram?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Pinterest Downloader</td>
+                <td>GET</td>
+                <td><a href="/pinterest?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Spotify Downloader</td>
+                <td>GET</td>
+                <td><a href="/spotify?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Spotify Searching</td>
+                <td>GET</td>
+                <td><a href="/spotifysearch?query=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Instagram Stalker</td>
+                <td>GET</td>
+                <td><a href="/stalkig?username=">[ ➠ ]</a> 
+            </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Threads Downloder</td>
+                <td>GET</td>
+                <td><a href="/threads?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Tiktok Downloader</td>
+                <td>GET</td>
+                <td><a href="/tiktok?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Tiktok Searching</td>
+                <td>GET</td>
+                <td><a href="/tiktoksearch?query=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Twitter Downloader</td>
+                <td>GET</td>
+                <td><a href="/twitter?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Xnxx Downloader</td>
+                <td>GET</td>
+                <td><a href="/xnxx?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Xvideos Downloader</td>
+                <td>GET</td>
+                <td><a href="/xvideos?url=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Xnxx Search</td>
+                <td>GET</td>
+                <td><a href="/xnxxsearch?query=">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Xvideos Search</td>
+                <td>GET</td>
+                <td><a href="/xvideos2?query=">[ ➠ ]</a></td>
+            </tr>
+        </table>
+        <h3>AI</h3>
+         <table>
+           <hr>
+            <tr>
+                 <th>No</th>
+                 <th>Name</th>
+                 <th>Method</th>
+                <th>Action</th>
+                </tr>
+            <tr>
+          <td>1</td>
+          <td>Gemini</td>
+          <td>GET</td>
+          <td><a href="/gemini?query=hai%20perkenalkan$20dirimu">[ ➠ ]</a></td>
+      </tr>
+           <tr>
+               <td>2</td>
+               <td>AI</td>
+               <td>GET</td>
+               <td><a href="/ai?query=hai%20perkenalkan$20dirimu">[ ➠ ]</a></td>
+           </tr>
+      </table>
+        <h3>Downloader</h3>
+        <table>
+            <hr>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Tab New</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Douyin Downloader</td>
+                <td><a href="/douyindl">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Tiktok Downloader</td>
+                <td><a href="/tiktokdl">[ ➠ ]</a></td>
+            </tr>
+        </table>
+        <h3>Scraper</h3>
+        <table>
+            <hr>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Tab New</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Remini</td>
+                <td><a href="/docs">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Remove Background</td>
+                <td><a href="/docs">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Photo To Anime</td>
+                <td><a href="/docs">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Photo To Zombie</td>
+                <td><a href="/docs">[ ➠ ]</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Speech To Text</td>
+                <td><a href="/docs">[ ➠ ]</a></td>
+            </tr>
+        </table>
+        <br>
+        <hr>
+        <footer>
+            <p class="footer__copy">&#169; 2024 DannTeam. All right reserved.</p>
+        </footer>
+        </br>
+        </hr>
+    </div>
+  <script>
+    function showTime() {
+      const date = new Date();
+      const h = date.getHours(); 
+      const m = date.getMinutes(); 
+      const s = date.getSeconds(); 
+      const time = h + ":" + m + ":" + s;
+      document.getElementById("MyClockDisplay").innerText = time;
+      setTimeout(showTime, 1000);
+  }
+
+  showTime();
+</script>
+</body>
+</html>

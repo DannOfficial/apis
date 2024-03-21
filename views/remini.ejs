@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Remini - DannTeam API</title>
+    <link rel="canonical" href="https://api.dannteam.com" />
+    <meta content="Remini - DannTeam API" name="description" />
+    <meta name="keywords" content="remini, upscale, DannTeam, api" />
+    <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="icon">     
+    <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="apple-touch-icon"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"></link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .upload-form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .upload-button {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background-color: #2980b9;
+        }
+
+        .upload-button:active {
+            background-color: #1f6cb7;
+        }
+
+        .preview-container {
+            text-align: center;
+        }
+
+        .preview-image {
+            max-width: 400px;
+            max-height: 400px;
+            object-fit: contain;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table button {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        table button:hover {
+            background-color: #2980b9;
+        }
+
+        .bg-blue-100 {
+            background-color: #BFDBFE;
+        }
+
+        .border-blue-500 {
+            border-color: #1E90FF;
+        }
+
+        .text-blue-700 {
+            color: #1E4E8C;
+        }
+
+        .bg-green-100 {
+            background-color: #D1FAE5;
+        }
+
+        .border-green-500 {
+            border-color: #34D399;
+        }
+
+        .text-green-700 {
+            color: #065F46;
+        }
+
+        .bg-red-100 {
+            background-color: #FEE2E2;
+        }
+
+        .border-red-500 {
+            border-color: #EF4444;
+        }
+
+        .text-red-700 {
+            color: #991B1B;
+        }
+
+        .infoku .p-4 {
+            padding: 1rem;
+        }
+
+        .infoku .mb-4 {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto py-10 sm:px-6 lg:px-8">
+    <div class="remini-info"></div>
+
+    <br>
+   <br>
+   <br>
+    <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
+        <div class="md:flex">
+            <div class="w-full p-4 upload-form">
+                <h1 class="text-2xl font-bold text-gray-800 mb-4 sm:text-3xl">DannTeam API</h1>
+                <p class="text-gray-700 text-sm mb-4">Remini or Upscaling Image</p>
+                <hr>
+                <br>
+                <form id="remini-upload" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="image" class="upload-label">Upload Image</label>
+                        <input type="file" accept="image/jpeg,image/png" name="image" id="image"
+                               class="bg-gray-100 border-2 w-full p-4 rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <button type="submit"
+                                class="upload-button focus:outline-none focus:shadow-outline">Upload
+                        </button>
+                    </div>
+                    <div class="mb-4 preview-container">
+                        <img src="" alt="Enhance Photos" style="display: none;" class="preview-image" id="preview">
+                    </div>
+                </form>
+                <div id="result-remini"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center text-gray-500 text-sm mt-10">
+        2023 <a href="https://instagram.com/dannalwaysalone"
+                     class="underline text-gray-500 hover:text-blue-500 transition-colors duration-300"
+                     target="_blank">DannTeam. </a>All right reserved.
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#remini-upload').submit(function (e) {
+              e.preventDefault();
+
+              var formData = new FormData(this);
+
+              $.ajax({
+                  url: 'https://api.dannteam.com/remini',
+                  type: 'POST',
+                  data: formData,
+                  dataType: 'json',
+                  async: false,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  beforeSend: function () {
+                      $('#result-remini').html('<div class="infoku bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-700 px-4 py-3 shadow-md mb-4" role="alert"><div class="flex"><div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 9h12a1 1 0 110 2H4a1 1 0 110-2zm0-4h12a1 1 0 110 2H4a1 1 0 110-2zm0 8h12a1 1 0 110 2H4a1 1 0 010-2zm9 4-1.554 1.554A2 2 0 1112 19.557V16h2.557a2 2 0 11-.003 2.003L13 20l.001-.003a2 2 0 11-2.003.003L11 20l-.003.001A2 2 0 119.444 18H12v-2.443a2 2 0 11.003-2.003L12 13l.001.003a2 2 0 01-.003-2.003L12 9l-.001-.003A2 2 0 0113.554 8H16V5.443a2 2 0 11.003-2.003L16 3h3.443a2 2 0 112.003 1.554L20 6l-.003-.001A2 2 0 0118.443 8H16v2.557a2 2 0 11-.003 2.003L16 13l.001-.003a2 2 0 11-2.003.003L14 13l-.003.001A2 2 0 0112.443 11H16v2.443a2 2 0 110 4z"/></svg></div><div><p>Loading...</p></div></div></div>');
+                  },
+                  success: function (response) {
+                      $('#result-remini').html('<div class="infoku bg-green-100 border-t-4 border-green-500 rounded-b text-green-700 px-4 py-3 shadow-md mb-4" role="alert"><div class="flex"><div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 7.293a1 1 0 011.414 0L9 10.586l3.293-3.293a1 1 0 011.32-.083l.094.083 4 4a1 1 0 01-1.32 1.497l-.094-.083L10 8.415 6.707 11.707a1 1 0 01-1.32.083l-.094-.083-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></div><div><p>Gambar telah ditingkatkan!</p></div></div></div>');
+                      $('#preview').attr('src', response.url);
+                      $('#preview').css('display', 'block');
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                      $('#result-remini').html('<div class="infoku bg-red-100 border-t-4 border-red-500 rounded-b text-red-700 px-4 py-3 shadow-md mb-4" role="alert"><div class="flex"><div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-9a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm1-3a1 1 0 00-1 1v5a1 1 0 102 0v-5a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg></div><div><p>Gagal meningkatkan gambar!</p></div></div></div>');
+                  }
+              });
+          });
+      });
+  </script>
+</body>
+</html>
