@@ -201,7 +201,7 @@
                 var base64Image = e.target.result.split(',')[1];
 
                 $.ajax({
-                    url: 'https://www.api.vyturex.com/upscale',
+                    url: 'https://www.api.vyturex.com/upscale?imageUrl=',
                     type: 'GET',
                     data: JSON.stringify({ image: base64Image }),
                     dataType: 'json',
