@@ -9,7 +9,7 @@
     <meta name="keywords" content="remini, upscale, DannTeam, api" />
     <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="icon">     
     <link href="https://telegra.ph/file/b849a052a00dbbfcd53fd.jpg" rel="apple-touch-icon"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"></link>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -153,8 +153,8 @@
     <div class="remini-info"></div>
 
     <br>
-   <br>
-   <br>
+    <br>
+    <br>
     <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
         <div class="md:flex">
             <div class="w-full p-4 upload-form">
@@ -198,12 +198,12 @@
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                var imageUrl = e.target.result;
+                var base64Image = e.target.result.split(',')[1];
 
                 $.ajax({
                     url: 'https://www.api.vyturex.com/upscale',
-                    type: 'GET',
-                    data: imageUrl,
+                    type: 'POST',
+                    data: JSON.stringify({ image: base64Image }),
                     dataType: 'json',
                     contentType: 'application/json',
                     beforeSend: function () {
