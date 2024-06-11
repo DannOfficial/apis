@@ -203,7 +203,7 @@
                 $.ajax({
                     url: 'https://www.api.vyturex.com/upscale?imageUrl=',
                     type: 'GET',
-                    data: JSON.stringify({ image: base64Image }),
+                    data: encodeURIComponent(base64Image),
                     dataType: 'json',
                     contentType: 'application/json',
                     beforeSend: function () {
